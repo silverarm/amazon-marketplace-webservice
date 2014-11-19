@@ -3,5 +3,10 @@
 	"description": "Silverarm composer package of the Apache Licensed, Amazon SDK for marketplace webservices.",
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
-	"type": "project"
+	"type": "project",
+	"autload": {
+		"classmap": [
+			"src/MarketplaceWebService/autoload.php"
+		]
+	}
 }
