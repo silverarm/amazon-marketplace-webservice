@@ -6,7 +6,7 @@
 	"type": "project",
 	"autload": {
 		"classmap": [
-			"src/MarketplaceWebService/autoload.php"
+			"autoload.php"
 		]
 	}
 }
