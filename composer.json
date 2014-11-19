@@ -4,9 +4,7 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"type": "project",
-	"autload": {
-		"classmap": [
-			"autoload.php"
-		]
+	"autoload": {
+		"files": [ "autoload.php" ]
 	}
 }
