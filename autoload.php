@@ -8,11 +8,11 @@ if( ! function_exists( 'autoload_amazon_marketwebservices' ) ) {
 			return;
 		}
 	    
-	    $filePath = str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
+	    $filePath  = __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR;
+	    $filePath .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
 	    
-        if(file_exists( __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . $filePath)){
+        if(file_exists($filePath)){
             require_once $filePath;
-            return;
         }
 
 	}
