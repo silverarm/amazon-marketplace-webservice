@@ -1,0 +1,7 @@
+{
+	"name": "silverarm/amazon-marketplace-webservice",
+	"description": "Silverarm composer package of the Apache Licensed, Amazon SDK for marketplace webservices.",
+	"keywords": ["framework", "laravel"],
+	"license": "MIT",
+	"type": "project"
+}
