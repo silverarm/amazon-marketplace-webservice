@@ -20,7 +20,7 @@
  * Get Report Request List Sample
  */
 
-include_once ('.config.inc.php'); 
+require_once ('.config.inc.php'); 
 
 /************************************************************************
 * Uncomment to configure the client instance. Configuration settings
@@ -35,7 +35,7 @@ include_once ('.config.inc.php');
 // United States:
 //$serviceUrl = "https://mws.amazonservices.com";
 // United Kingdom
-//$serviceUrl = "https://mws.amazonservices.co.uk";
+$serviceUrl = "https://mws.amazonservices.co.uk";
 // Germany
 //$serviceUrl = "https://mws.amazonservices.de";
 // France
@@ -91,17 +91,18 @@ $config = array (
  // @TODO: set request. Action can be passed as MarketplaceWebService_Model_GetReportListRequest
  // object or array of parameters
  
-// $parameters = array (
-//   'Merchant' => MERCHANT_ID,
-//   'MWSAuthToken' => '<MWS Auth Token>', // Optional
-// );
-// $request = new MarketplaceWebService_Model_GetReportRequestListRequest($parameters);
+$parameters = array (
+  'Merchant' => MERCHANT_ID,
+  // 'MWSAuthToken' => '<MWS Auth Token>', // Optional
+);
+$request = new MarketplaceWebService_Model_GetReportRequestListRequest($parameters);
  
-//$request = new MarketplaceWebService_Model_GetReportRequestListRequest();
-//$request->setMerchant(MERCHANT_ID);
-//$request->setMWSAuthToken('<MWS Auth Token>'); // Optional
-// 
-//invokeGetReportRequestList($service, $request);
+$request = new MarketplaceWebService_Model_GetReportRequestListRequest();
+$request->setMerchant(MERCHANT_ID);
+// $request->setReportRequestIdList( new MarketplaceWebService_Model_IdList(array('Id' => '50060016393')));
+// $request->setMWSAuthToken('<MWS Auth Token>'); // Optional
+
+invokeGetReportRequestList($service, $request);
 
                                                                     
 /**

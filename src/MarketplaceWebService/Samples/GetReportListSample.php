@@ -35,7 +35,7 @@ include_once ('.config.inc.php');
 // United States:
 //$serviceUrl = "https://mws.amazonservices.com";
 // United Kingdom
-//$serviceUrl = "https://mws.amazonservices.co.uk";
+$serviceUrl = "https://mws.amazonservices.co.uk";
 // Germany
 //$serviceUrl = "https://mws.amazonservices.de";
 // France
@@ -90,24 +90,24 @@ $config = array (
  ***********************************************************************/
  // @TODO: set request. Action can be passed as MarketplaceWebService_Model_GetReportListRequest
  // object or array of parameters
-// $parameters = array (
-//   'Merchant' => MERCHANT_ID,
-//   'AvailableToDate' => new DateTime('now', new DateTimeZone('UTC')),
-//   'AvailableFromDate' => new DateTime('-6 months', new DateTimeZone('UTC')),
-//   'Acknowledged' => false, 
-//   'MWSAuthToken' => '<MWS Auth Token>', // Optional
-// );
+$parameters = array (
+  'Merchant' => MERCHANT_ID,
+  'AvailableToDate' => new DateTime('now', new DateTimeZone('UTC')),
+  'AvailableFromDate' => new DateTime('-6 months', new DateTimeZone('UTC')),
+  'Acknowledged' => false, 
+  'MWSAuthToken' => '<MWS Auth Token>', // Optional
+);
 // 
-// $request = new MarketplaceWebService_Model_GetReportListRequest($parameters);
+$request = new MarketplaceWebService_Model_GetReportListRequest($parameters);
  
-// $request = new MarketplaceWebService_Model_GetReportListRequest();
-// $request->setMerchant(MERCHANT_ID);
-// $request->setAvailableToDate(new DateTime('now', new DateTimeZone('UTC')));
-// $request->setAvailableFromDate(new DateTime('-3 months', new DateTimeZone('UTC')));
-// $request->setAcknowledged(false);
+$request = new MarketplaceWebService_Model_GetReportListRequest();
+$request->setMerchant(MERCHANT_ID);
+$request->setAvailableToDate(new DateTime('now', new DateTimeZone('UTC')));
+$request->setAvailableFromDate(new DateTime('-3 months', new DateTimeZone('UTC')));
+$request->setAcknowledged(false);
 // $request->setMWSAuthToken('<MWS Auth Token>'); // Optional
  
-// invokeGetReportList($service, $request);
+invokeGetReportList($service, $request);
                                                                     
 /**
   * Get Report List Action Sample

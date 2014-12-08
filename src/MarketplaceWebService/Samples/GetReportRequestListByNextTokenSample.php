@@ -35,7 +35,7 @@ include_once ('.config.inc.php');
 // United States:
 //$serviceUrl = "https://mws.amazonservices.com";
 // United Kingdom
-//$serviceUrl = "https://mws.amazonservices.co.uk";
+$serviceUrl = "https://mws.amazonservices.co.uk";
 // Germany
 //$serviceUrl = "https://mws.amazonservices.de";
 // France
@@ -93,19 +93,19 @@ $config = array (
  
 // $nextToken = '<The NextToken returned by GetReportRequestList>';
      
-// $parameters = array (
-//   'Merchant' => MERCHANT_ID,
-//   'NextToken' => $nextToken,
-//   'MWSAuthToken' => '<MWS Auth Token>', // Optional
-// );
-// $request = new MarketplaceWebService_Model_GetReportRequestListByNextTokenRequest($parameters);
+$parameters = array (
+  'Merchant' => MERCHANT_ID,
+  'NextToken' => $nextToken,
+  // 'MWSAuthToken' => '<MWS Auth Token>', // Optional
+);
+$request = new MarketplaceWebService_Model_GetReportRequestListByNextTokenRequest($parameters);
  
-// $request = new MarketplaceWebService_Model_GetReportRequestListByNextTokenRequest();
-// $request->setMerchant(MERCHANT_ID);
-// $request->setNextToken($nextToken);
+$request = new MarketplaceWebService_Model_GetReportRequestListByNextTokenRequest();
+$request->setMerchant(MERCHANT_ID);
+$request->setNextToken($nextToken);
 // $request->setMWSAuthToken('<MWS Auth Token>'); // Optional
 // 
-// invokeGetReportRequestListByNextToken($service, $request);
+invokeGetReportRequestListByNextToken($service, $request);
 
                                                                     
 /**

@@ -11,20 +11,20 @@
  *******************************************************************************
  * PHP Version 5
  * @category Amazon
- * @package  Marketplace Web Service Orders
- * @version  2013-09-01
+ * @package  Marketplace Web Service Sellers
+ * @version  2011-07-01
  * Library Version: 2014-10-20
- * Generated: Fri Oct 17 15:31:59 GMT 2014
+ * Generated: Fri Oct 17 18:34:06 GMT 2014
  */
 
 /**
- * List Orders Sample
+ * List Marketplace Participations By Next Token Sample
  */
 
 require_once('.config.inc.php');
 
 /************************************************************************
- * Instantiate Implementation of MarketplaceWebServiceOrders
+ * Instantiate Implementation of MarketplaceWebServiceSellers
  *
  * AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY constants
  * are defined in the .config.inc.php located in the same
@@ -32,13 +32,13 @@ require_once('.config.inc.php');
  ***********************************************************************/
 // More endpoints are listed in the MWS Developer Guide
 // North America:
-//$serviceUrl = "https://mws.amazonservices.com/Orders/2013-09-01";
+//$serviceUrl = "https://mws.amazonservices.com/Sellers/2011-07-01";
 // Europe
-$serviceUrl = "https://mws-eu.amazonservices.com/Orders/2013-09-01";
+//$serviceUrl = "https://mws-eu.amazonservices.com/Sellers/2011-07-01";
 // Japan
-//$serviceUrl = "https://mws.amazonservices.jp/Orders/2013-09-01";
+//$serviceUrl = "https://mws.amazonservices.jp/Sellers/2011-07-01";
 // China
-//$serviceUrl = "https://mws.amazonservices.com.cn/Orders/2013-09-01";
+//$serviceUrl = "https://mws.amazonservices.com.cn/Sellers/2011-07-01";
 
 
  $config = array (
@@ -50,7 +50,7 @@ $serviceUrl = "https://mws-eu.amazonservices.com/Orders/2013-09-01";
    'MaxErrorRetry' => 3,
  );
 
- $service = new MarketplaceWebServiceOrders_Client(
+ $service = new MarketplaceWebServiceSellers_Client(
         AWS_ACCESS_KEY_ID,
         AWS_SECRET_ACCESS_KEY,
         APPLICATION_NAME,
@@ -58,42 +58,40 @@ $serviceUrl = "https://mws-eu.amazonservices.com/Orders/2013-09-01";
         $config);
 
 /************************************************************************
- * Uncomment to try out Mock Service that simulates MarketplaceWebServiceOrders
- * responses without calling MarketplaceWebServiceOrders service.
+ * Uncomment to try out Mock Service that simulates MarketplaceWebServiceSellers
+ * responses without calling MarketplaceWebServiceSellers service.
  *
  * Responses are loaded from local XML files. You can tweak XML files to
  * experiment with various outputs during development
  *
- * XML files available under MarketplaceWebServiceOrders/Mock tree
+ * XML files available under MarketplaceWebServiceSellers/Mock tree
  *
  ***********************************************************************/
- // $service = new MarketplaceWebServiceOrders_Mock();
+ // $service = new MarketplaceWebServiceSellers_Mock();
 
 /************************************************************************
  * Setup request parameters and uncomment invoke to try out
- * sample for List Orders Action
+ * sample for List Marketplace Participations By Next Token Action
  ***********************************************************************/
- // @TODO: set request. Action can be passed as MarketplaceWebServiceOrders_Model_ListOrders
- $request = new MarketplaceWebServiceOrders_Model_ListOrdersRequest();
+ // @TODO: set request. Action can be passed as MarketplaceWebServiceSellers_Model_ListMarketplaceParticipationsByNextToken
+ $request = new MarketplaceWebServiceSellers_Model_ListMarketplaceParticipationsByNextTokenRequest();
  $request->setSellerId(MERCHANT_ID);
- $request->setMarketplaceId('A1DH016RROW7MH');
- $request->setLastUpdatedAfter('2000-01-01T00:00:01Z');
  // object or array of parameters
- invokeListOrders($service, $request);
+ invokeListMarketplaceParticipationsByNextToken($service, $request);
 
 /**
-  * Get List Orders Action Sample
+  * Get List Marketplace Participations By Next Token Action Sample
   * Gets competitive pricing and related information for a product identified by
   * the MarketplaceId and ASIN.
   *
-  * @param MarketplaceWebServiceOrders_Interface $service instance of MarketplaceWebServiceOrders_Interface
-  * @param mixed $request MarketplaceWebServiceOrders_Model_ListOrders or array of parameters
+  * @param MarketplaceWebServiceSellers_Interface $service instance of MarketplaceWebServiceSellers_Interface
+  * @param mixed $request MarketplaceWebServiceSellers_Model_ListMarketplaceParticipationsByNextToken or array of parameters
   */
 
-  function invokeListOrders(MarketplaceWebServiceOrders_Interface $service, $request)
+  function invokeListMarketplaceParticipationsByNextToken(MarketplaceWebServiceSellers_Interface $service, $request)
   {
       try {
-        $response = $service->ListOrders($request);
+        $response = $service->ListMarketplaceParticipationsByNextToken($request);
 
         echo ("Service Response\n");
         echo ("=============================================================================\n");
@@ -105,7 +103,7 @@ $serviceUrl = "https://mws-eu.amazonservices.com/Orders/2013-09-01";
         echo $dom->saveXML();
         echo("ResponseHeaderMetadata: " . $response->getResponseHeaderMetadata() . "\n");
 
-     } catch (MarketplaceWebServiceOrders_Exception $ex) {
+     } catch (MarketplaceWebServiceSellers_Exception $ex) {
         echo("Caught Exception: " . $ex->getMessage() . "\n");
         echo("Response Status Code: " . $ex->getStatusCode() . "\n");
         echo("Error Code: " . $ex->getErrorCode() . "\n");

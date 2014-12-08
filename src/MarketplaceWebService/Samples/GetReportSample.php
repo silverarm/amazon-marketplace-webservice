@@ -35,7 +35,7 @@ include_once ('.config.inc.php');
 // United States:
 //$serviceUrl = "https://mws.amazonservices.com";
 // United Kingdom
-//$serviceUrl = "https://mws.amazonservices.co.uk";
+$serviceUrl = "https://mws.amazonservices.co.uk";
 // Germany
 //$serviceUrl = "https://mws.amazonservices.de";
 // France
@@ -90,21 +90,24 @@ $config = array (
  ***********************************************************************/
  // @TODO: set request. Action can be passed as MarketplaceWebService_Model_GetReportRequest
  // object or array of parameters
-// $reportId = '<Your Report Id>';
+// $reportId = '47910218944';
+// dd($reportId);
  
-// $parameters = array (
-//   'Merchant' => MERCHANT_ID,
-//   'Report' => @fopen('php://memory', 'rw+'),
-//   'ReportId' => $reportId,
-//   'MWSAuthToken' => '<MWS Auth Token>', // Optional
-// );
-// $request = new MarketplaceWebService_Model_GetReportRequest($parameters);
+$parameters = array (
+  'Merchant' => MERCHANT_ID,
+  'Report' => @fopen('php://memory', 'rw+'),
+  'ReportId' => $reportId,
+  'MWSAuthToken' => '<MWS Auth Token>', // Optional
+);
+$request = new MarketplaceWebService_Model_GetReportRequest($parameters);
 
-//$request = new MarketplaceWebService_Model_GetReportRequest();
-//$request->setMerchant(MERCHANT_ID);
-//$request->setReport(@fopen('php://memory', 'rw+'));
-//$request->setReportId($reportId);
+$request = new MarketplaceWebService_Model_GetReportRequest();
+$request->setMerchant(MERCHANT_ID);
+$request->setReport(@fopen('php://memory', 'rw+'));
+$request->setReportId($reportId);
 //$request->setMWSAuthToken('<MWS Auth Token>'); // Optional
+
+
  
 invokeGetReport($service, $request);
 

@@ -1,8 +1,12 @@
 <?php
   
-   define ('DATE_FORMAT', 'Y-m-d\TH:i:s\Z');
+   /**
+     * Report  Sample
+     */
 
-   /************************************************************************
+    define ('DATE_FORMAT', 'Y-m-d\TH:i:s\Z');
+
+    /************************************************************************
     * REQUIRED
     *
     * * Access Key ID and Secret Acess Key ID, obtained from:
@@ -14,25 +18,25 @@
     * to anyone. It is important to keep your Secret Access Key confidential
     * to protect your account.
     ***********************************************************************/
-    define('AWS_ACCESS_KEY_ID', '<Your Access Key ID>');
-    define('AWS_SECRET_ACCESS_KEY', '<Your Secret Access Key>');
+    define('AWS_ACCESS_KEY_ID', 'AKIAJ4UI5SXU4DUOCOUQ');        // Silverarm ID
+    define('AWS_SECRET_ACCESS_KEY', 'A/Kk3+b02iCvLvDIQ5fZfDac99KKTJPyyKoTvEUf'); // Silverarm secret
 
-   /************************************************************************
+    /************************************************************************
     * REQUIRED
     * 
     * All MWS requests must contain a User-Agent header. The application
     * name and version defined below are used in creating this value.
     ***********************************************************************/
-    define('APPLICATION_NAME', '<Your Application Name>');
-    define('APPLICATION_VERSION', '<Your Application Version or Build Number>');
-    
-   /************************************************************************
+    define('APPLICATION_NAME', 'Silverarm Amazon App');
+    define('APPLICATION_VERSION', '0.1');
+
+    /************************************************************************
     * REQUIRED
     * 
     * All MWS requests must contain the seller's merchant ID and
     * marketplace ID.
     ***********************************************************************/
-    define ('MERCHANT_ID', '<Your Merchant ID>');
+    define ('MERCHANT_ID', 'A1ZDBQ1P1MWRG2'); // Elivar ID
     
    /************************************************************************ 
     * OPTIONAL ON SOME INSTALLATIONS
@@ -41,7 +45,8 @@
     * Only needed when running library from local directory.
     * If library is installed in PHP include path, this is not needed
     ***********************************************************************/   
-    set_include_path(get_include_path() . PATH_SEPARATOR . '../../.');    
+    set_include_path(get_include_path() . PATH_SEPARATOR . realpath(__DIR__ . '/../../' ));    
+
     
    /************************************************************************ 
     * OPTIONAL ON SOME INSTALLATIONS  
@@ -57,7 +62,7 @@
     * (provided library is installed in the PHP include path), and so classes may just 
     * be loaded even when this function is removed
     ***********************************************************************/   
-     function __autoload($className){
+     function amazon_stupid_sdk_autloader($className){
         $filePath = str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
         $includePaths = explode(PATH_SEPARATOR, get_include_path());
         foreach($includePaths as $includePath){
@@ -67,6 +72,8 @@
             }
         }
     }
+
+    spl_autoload_register('amazon_stupid_sdk_autloader');
   
 
 

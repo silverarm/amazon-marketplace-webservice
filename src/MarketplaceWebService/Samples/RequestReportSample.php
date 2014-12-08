@@ -19,8 +19,10 @@
 /**
  * Report  Sample
  */
+require_once( __DIR__ . '/.config.inc.php');
 
-include_once ('.config.inc.php'); 
+
+
 
 /************************************************************************
 * Uncomment to configure the client instance. Configuration settings
@@ -35,7 +37,7 @@ include_once ('.config.inc.php');
 // United States:
 //$serviceUrl = "https://mws.amazonservices.com";
 // United Kingdom
-//$serviceUrl = "https://mws.amazonservices.co.uk";
+$serviceUrl = "https://mws.amazonservices.co.uk";
 // Germany
 //$serviceUrl = "https://mws.amazonservices.de";
 // France
@@ -90,29 +92,31 @@ $config = array (
  ***********************************************************************/
 // Constructing the MarketplaceId array which will be passed in as the the MarketplaceIdList 
 // parameter to the RequestReportRequest object.
-$marketplaceIdArray = array("Id" => array('<Marketplace_Id_1>','<Marketplace_Id_2>'));
+$marketplaceIdArray = array("Id" => array('A1DH016RROW7MH')); // Elivar Marketplace ID
 
  // @TODO: set request. Action can be passed as MarketplaceWebService_Model_ReportRequest
  // object or array of parameters
  
-// $parameters = array (
-//   'Merchant' => MERCHANT_ID,
-//   'MarketplaceIdList' => $marketplaceIdArray,
-//   'ReportType' => '_GET_MERCHANT_LISTINGS_DATA_',
-//   'ReportOptions' => 'ShowSalesChannel=true',
-//   'MWSAuthToken' => '<MWS Auth Token>', // Optional
-// );
+$parameters = array (
+  'Merchant' => MERCHANT_ID,
+  'MarketplaceIdList' => $marketplaceIdArray,
+  'ReportType' => '_GET_FLAT_FILE_ORDERS_DATA_',
+  'ReportOptions' => 'ShowSalesChannel=true',
+  // 'MWSAuthToken' => '<MWS Auth Token>', // Optional
+);
  
-// $request = new MarketplaceWebService_Model_RequestReportRequest($parameters);
+$request = new MarketplaceWebService_Model_RequestReportRequest($parameters);
  
-// $request = new MarketplaceWebService_Model_RequestReportRequest();
-// $request->setMarketplaceIdList($marketplaceIdArray);
-// $request->setMerchant(MERCHANT_ID);
-// $request->setReportType('_GET_MERCHANT_LISTINGS_DATA_');
+$request = new MarketplaceWebService_Model_RequestReportRequest();
+$request->setMarketplaceIdList($marketplaceIdArray);
+$request->setMerchant(MERCHANT_ID);
+$request->setReportType('_GET_FLAT_FILE_ORDERS_DATA_');
+$request->setStartDate( new DateTime('2014-06-01 00:00:01') );
+
 // $request->setMWSAuthToken('<MWS Auth Token>'); // Optional
 
 // Using ReportOptions
-// $request->setReportOptions('ShowSalesChannel=true');
+$request->setReportOptions('ShowSalesChannel=true');
  
  invokeRequestReport($service, $request);
  
